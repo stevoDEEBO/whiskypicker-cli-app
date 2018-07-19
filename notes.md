@@ -15,13 +15,13 @@ Whisky Picker - CLI Data Gem Proj
 Welcome to Whisky Picker...ready to pick yer whisky?
 
 ##This is how it could be expanded later...
-#How would you like to search for a whisky today?
-#1. Country of origin
-#2. Brand name
-#3. Style (Whisky by Flavor page)
-#User types number of selected search method
+How would you like to search for a whisky today?
+1. Country of origin
+2. Brand name
+3. Style (Whisky by Flavor page)
+User types number of selected search method
 
-#For 1. Country of origin:
+For 1. Country of origin:##
 
 
   Which whisky collection would you like to see?
