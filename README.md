@@ -1,0 +1,1 @@
+# whiskypicker-cli-app
