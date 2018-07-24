@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+
+WhiskyPicker::CLI.new.call
