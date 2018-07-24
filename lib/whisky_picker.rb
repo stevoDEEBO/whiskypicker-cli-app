@@ -1,5 +1,3 @@
-require "whisky_picker/version"
 
-module WhiskyPicker
-  # Your code goes here...
-end
+require_relative "./whisky_picker/version"
+require_relative "./whisky_picker/cli"
