@@ -1,3 +1,4 @@
+#CLI Controller
 class WhiskyPicker::CLI
 
   def call

@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
+require './lib/whisky_picker'
+
 WhiskyPicker::CLI.new.call
