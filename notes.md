@@ -64,12 +64,10 @@ For 1. Country of origin:##
       Whisky info:
         Name
         Country
-        Region/type
-        Size
+        Region
+        Type
         Proof
-        Description/details
-        Tasting notes
+        Description
         Customer rating
-        Price
         Return to previous list
         Start Over

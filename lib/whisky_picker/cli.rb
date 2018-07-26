@@ -1,6 +1,9 @@
 #CLI Controller
 class WhiskyPicker::CLI
 
+  #include base path to append urls of respective whisky type webpages
+  BASE_PATH = "https://www.thewhiskyexchange.com/c/"
+
 #welcome user to gem and call list search options
   def call
     pick_whiskies
@@ -100,6 +103,8 @@ class WhiskyPicker::CLI
   def scotch_single_malt
     puts "Let's explore single malt Scotch whiskies"
     #scrape and list all single malt scotches
+    whisky_array = whisky_scraper.scrape_index_page(BASE_PATH + '40/single-malt-scotch-whisky?filter=true&rfdata=~size.76#productlist-filter')
+
   end
 
   #show list of blended malt Scotch whiskies
