@@ -34,7 +34,7 @@ How would you like to search for a whisky today?
 3. Style (Whisky by Flavor page)
 User types number of selected search method
 
-For 1. Country of origin:##
+For 1. Country of origin:
 
 
   Which whisky collection would you like to see?

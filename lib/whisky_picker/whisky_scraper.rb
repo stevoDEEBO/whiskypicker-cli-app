@@ -9,15 +9,15 @@ class WhiskyPicker::Whisky_scraper
     doc = Nokogiri::HTML(open(index_url))
 
     whisky_array = []
-    whiskies = doc.css("")
+    whiskies = doc.css(".item")
     whiskies.each do |whisky|
       whisky = {
-        :name => whisky.css(".item a.information.name").text,
-        :profile_url => whisky.css(".item a").attribute("href").value
+        :name => whisky.css("a").attribute("title").text.strip,
+        :profile_url => whisky.css("a").attribute("href").value
       }
       whisky_array << whisky
-      binding.pry
     end
     whisky_array
+    binding.pry
   end
 end

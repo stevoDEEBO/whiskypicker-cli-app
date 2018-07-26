@@ -1,3 +1,9 @@
+
+require_relative "whisky_scraper.rb"
+require_relative "whisky.rb"
+
+
+
 #CLI Controller
 class WhiskyPicker::CLI
 
@@ -103,7 +109,7 @@ class WhiskyPicker::CLI
   def scotch_single_malt
     puts "Let's explore single malt Scotch whiskies"
     #scrape and list all single malt scotches
-    whisky_array = whisky_scraper.scrape_index_page(BASE_PATH + '40/single-malt-scotch-whisky?filter=true&rfdata=~size.76#productlist-filter')
+    whisky_array = WhiskyPicker::Whisky_scraper.scrape_index_page(BASE_PATH + '40/single-malt-scotch-whisky?filter=true&rfdata=~size.76#productlist-filter')
 
   end
 
