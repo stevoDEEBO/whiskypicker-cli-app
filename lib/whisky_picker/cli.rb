@@ -65,7 +65,6 @@ class WhiskyPicker::CLI
     2. Blended Malt
     3. Blended
     4. Grain
-    5. Organic
     DOC
     scotch_menu
   end
@@ -85,8 +84,6 @@ class WhiskyPicker::CLI
         scotch_blended
       when "4"
         scotch_grain
-      when "5"
-        scotch_organic
       when "list"
         scotch
       when "exit"
@@ -121,12 +118,6 @@ class WhiskyPicker::CLI
   def scotch_grain
     puts "Let's explore grain Scotch whiskies"
     #scrape and list all grain scotches
-  end
-
-  #show list of organic Scotch whiskies
-  def scotch_organic
-    puts "Let's explore organic Scotch whiskies"
-    #scrape and list all organic scotches
   end
 
   #show list of Irish whiskies
