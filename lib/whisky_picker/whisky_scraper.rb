@@ -18,6 +18,5 @@ class WhiskyPicker::Whisky_scraper
       whisky_array << whisky
     end
     whisky_array
-    binding.pry
   end
 end

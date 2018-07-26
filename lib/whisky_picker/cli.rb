@@ -1,4 +1,4 @@
-
+require 'pry'
 require_relative "whisky_scraper.rb"
 require_relative "whisky.rb"
 
@@ -108,9 +108,15 @@ class WhiskyPicker::CLI
   #show list of single malt Scotch whiskies
   def scotch_single_malt
     puts "Let's explore single malt Scotch whiskies"
-    #scrape and list all single malt scotches
+    #scrape and and create array of whisky hashes for all single malt scotches
     whisky_array = WhiskyPicker::Whisky_scraper.scrape_index_page(BASE_PATH + '40/single-malt-scotch-whisky?filter=true&rfdata=~size.76#productlist-filter')
-
+    #display list of all scraped single malt scotches
+    list_num = 0
+    whisky_array.each do |whisky|
+      puts "#{list_num+=1}. #{whisky.values[0]}"
+    end
+    whisky_array
+    #binding.pry
   end
 
   #show list of blended malt Scotch whiskies
