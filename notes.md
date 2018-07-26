@@ -9,6 +9,19 @@ How to Build a CLI Gem
 7. discover objects.
 8. program
 
+scrape from whisky type index pages:
+  CLI tells scraper class to scrape whiskies from webpage
+  CLI tells whisky class to create array of whiskies
+  whisky class makes the whiskies into hashes with name & url and puts them into array to return to CLI
+
+scrape from whisky profile pages:
+  CLI tells scraper class to scrape whisky profile pages
+  CLI tells whisky class to create profile attributes for whiskies
+  CLI displays whisky profile info
+
+CLI makes whisky
+CLI adds profile attributes to whisky
+CLI displays whisky profile
 
 Whisky Picker - CLI Data Gem Proj
 
@@ -32,7 +45,7 @@ For 1. Country of origin:##
   5. Canadian
   6. Other
   User types number of selected country
-  
+
    if Scotch,
     Which type of Scotch would you like to explore?
     1. Single Malt
@@ -45,20 +58,8 @@ For 1. Country of origin:##
     Shows numbered list of A-Z brands of selected country
     Last item in list: Return to previous list
 
-    Which whisky brand would you like more info on?
-    User types number of selected brand
-
-    List brand info:
-      Brand name
-      Country of origin
-      Region (if Scotch)
-      Shows numbered list with whiskies from brand's collection
-      Last item in list: Return to previous list
-      
-      Any of these catch your eye?
-      Last item in list: Return to previous list
-
-      User types number for specific whisky
+    Which whisky would you like more info on?
+    User types number of selected whisky
 
       Whisky info:
         Name
@@ -72,5 +73,3 @@ For 1. Country of origin:##
         Price
         Return to previous list
         Start Over
-  
-  
