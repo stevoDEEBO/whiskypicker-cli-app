@@ -15,18 +15,18 @@ greeting
 list whiskies
   list countries
   scotch: list types
-display whisky profile
+display whisky profile for selection
 laters
 
 scrape from whisky type index pages:
-  CLI tells scraper class to scrape whiskies from webpage
-  CLI tells whisky class to create array of whiskies
+  CLI tells whisky class to scrape whiskies from webpage
   whisky class makes the whiskies into hashes with name & url and puts them into array to return to CLI
+  CLI takes names from array and shows list of whiskies
 
 scrape from whisky profile pages:
-  CLI tells scraper class to scrape whisky profile pages
-  CLI tells whisky class to create profile attributes for whiskies
-  CLI displays whisky profile info
+  CLI tells whisky class to scrape selected whisky profile page
+  whisky class makes whisky profile hash using scraped info and puts them into array to return to CLI
+  CLI displays whisky profile for selected whisky
 
 
 Whisky Picker - CLI Data Gem Proj
