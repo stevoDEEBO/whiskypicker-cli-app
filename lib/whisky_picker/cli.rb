@@ -12,13 +12,18 @@ class WhiskyPicker::CLI
 
 #welcome user to gem and call list search options
   def call
+    greet
     pick_whiskies
     #laters
   end
 
-#list search options - leave open for now to expand by diff options- country, style, brand, etc
-  def pick_whiskies
+#greet user
+  def greet
     puts "Welcome to Whisky Picker...ready to pick yer whisky?"
+  end
+
+#list search options - can expand later by diff options- country, style, brand, etc
+  def pick_whiskies
     countries
   end
 
@@ -82,7 +87,7 @@ class WhiskyPicker::CLI
   def scotch_menu
     input = nil
     while input != "exit"
-      puts "Please enter the number of desired scotch or type list or exit."
+      puts "Please enter the number of desired scotch or type list, back or exit."
       input = gets.strip.downcase
       case input
       when "1"
@@ -95,6 +100,8 @@ class WhiskyPicker::CLI
         scotch_grain
       when "list"
         scotch
+      when "back"
+        countries
       when "exit"
         laters
       else
@@ -103,107 +110,78 @@ class WhiskyPicker::CLI
     end
   end
 
-#call methods below to show list of selected type of scotch whisky
-
   #show list of single malt Scotch whiskies
   def scotch_single_malt
     puts "Let's explore single malt Scotch whiskies"
-    #scrape and and create array of whisky hashes for all single malt scotches
-    @whiskies = WhiskyPicker::Whisky_scraper.scrape_index_page(BASE_PATH + 'c/40/single-malt-scotch-whisky?filter=true&rfdata=~size.76#productlist-filter')
-    #display list of all scraped single malt scotches using array indices and hash key 'name'
-    @whiskies.each_with_index do |whisky, index|
-      puts "#{index+1}. #{whisky.name}"
-    end
+    #call method to list whiskies for this particular type
+    list_whiskies('c/40/single-malt-scotch-whisky?filter=true&rfdata=~size.76#productlist-filter')
   end
 
   #show list of blended malt Scotch whiskies
   def scotch_blended_malt
     puts "Let's explore blended malt Scotch whiskies"
-    #scrape and list all blended malt scotches
-    @whiskies = WhiskyPicker::Whisky_scraper.scrape_index_page(BASE_PATH + 'c/309/blended-malt-scotch-whisky?filter=true&rfdata=~size.76#productlist-filter')
-    #display list of all scraped single malt scotches using array indices and hash key 'name'
-    @whiskies.each_with_index do |whisky, index|
-      puts "#{index+1}. #{whisky.name}"
-    end
+    #call method to list whiskies for this particular type
+    list_whiskies('c/309/blended-malt-scotch-whisky?filter=true&rfdata=~size.76#productlist-filter')
   end
 
   #show list of blended Scotch whiskies
   def scotch_blended
     puts "Let's explore blended Scotch whiskies"
-    #scrape and list all blended scotches
-    @whiskies = WhiskyPicker::Whisky_scraper.scrape_index_page(BASE_PATH + 'c/304/blended-scotch-whisky?filter=true&rfdata=~size.76#productlist-filter')
-    #display list of all scraped single malt scotches using array indices and hash key 'name'
-    @whiskies.each_with_index do |whisky, index|
-      puts "#{index+1}. #{whisky.name}"
-    end
+    #call method to list whiskies for this particular type
+    list_whiskies('c/304/blended-scotch-whisky?filter=true&rfdata=~size.76#productlist-filter')
   end
 
   #show list of grain Scotch whiskies
   def scotch_grain
     puts "Let's explore grain Scotch whiskies"
-    #scrape and list all grain scotches
-    @whiskies = WhiskyPicker::Whisky_scraper.scrape_index_page(BASE_PATH + 'c/310/grain-scotch-whisky?filter=true&rfdata=~size.76#productlist-filter')
-    #display list of all scraped single malt scotches using array indices and hash key 'name'
-    @whiskies.each_with_index do |whisky, index|
-      puts "#{index+1}. #{whisky.name}"
-    end
+    #call method to list whiskies for this particular type
+    list_whiskies('c/310/grain-scotch-whisky?filter=true&rfdata=~size.76#productlist-filter')
   end
 
   #show list of Irish whiskies
   def irish
     puts "Let's explore the whiskies of Ireland"
-    #scrape and list all Irish whiskies
-    @whiskies = WhiskyPicker::Whisky_scraper.scrape_index_page(BASE_PATH + 'c/32/irish-whiskey?filter=true&rfdata=~size.76#productlist-filter')
-    #display list of all scraped single malt scotches using array indices and hash key 'name'
-    @whiskies.each_with_index do |whisky, index|
-      puts "#{index+1}. #{whisky.name}"
-    end
+    #call method to list whiskies for this particular type
+    list_whiskies('c/32/irish-whiskey?filter=true&rfdata=~size.76#productlist-filter')
   end
 
   #show list of American whiskies
   def american
     puts "Let's explore the whiskies of the United States of America"
-    #scrape and list all American whiskies
-    @whiskies = WhiskyPicker::Whisky_scraper.scrape_index_page(BASE_PATH + 'c/33/american-whiskey?filter=true&rfdata=~size.76#productlist-filter')
-    #display list of all scraped single malt scotches using array indices and hash key 'name'
-    @whiskies.each_with_index do |whisky, index|
-      puts "#{index+1}. #{whisky.name}"
-    end
+    #call method to list whiskies for this particular type
+    list_whiskies('c/33/american-whiskey?filter=true&rfdata=~size.76#productlist-filter')
   end
 
   #show list of Japanese whiskies
   def japanese
     puts "Let's explore the whiskies of Japan"
-    #scrape and list all Japanese whiskies
-    @whiskies = WhiskyPicker::Whisky_scraper.scrape_index_page(BASE_PATH + 'c/35/japanese-whisky?filter=true&rfdata=~size.76#productlist-filter')
-    #display list of all scraped single malt scotches using array indices and hash key 'name'
-    @whiskies.each_with_index do |whisky, index|
-      puts "#{index+1}. #{whisky.name}"
-    end
+    #call method to list whiskies for this particular type
+    list_whiskies('c/35/japanese-whisky?filter=true&rfdata=~size.76#productlist-filter')
   end
 
   #show list of Canadian whiskies
   def canadian
     puts "Let's explore the whiskies of Canada"
-    #scrape and list all Canadian whiskies
-    @whiskies = WhiskyPicker::Whisky_scraper.scrape_index_page(BASE_PATH + 'c/34/canadian-whisky?filter=true&rfdata=~size.76#productlist-filter')
-    #display list of all scraped single malt scotches using array indices and hash key 'name'
-    @whiskies.each_with_index do |whisky, index|
-      puts "#{index+1}. #{whisky.name}"
-    end
+    #call method to list whiskies for this particular type
+    list_whiskies('c/34/canadian-whisky?filter=true&rfdata=~size.76#productlist-filter')
   end
 
   #show list of whiskies from other countries
   def other
     puts "Let's explore the whiskies of other countries"
-    #scrape and list all other whiskies
-    @whiskies = WhiskyPicker::Whisky_scraper.scrape_index_page(BASE_PATH + 'c/305/rest-of-the-world-whisky?filter=true&rfdata=~size.76#productlist-filter')
-    #display list of all scraped single malt scotches using array indices and hash key 'name'
-    @whiskies.each_with_index do |whisky, index|
-      puts "#{index+1}. #{whisky.name}"
-    end
+    #call method to list whiskies for this particular type
+    list_whiskies('c/305/rest-of-the-world-whisky?filter=true&rfdata=~size.76#productlist-filter')
   end
 
+  #display list of all scraped selected whiskies using array indices and hash key 'name'
+  def list_whiskies(whisky_url)
+    #scrape and and create array of whisky hashes for all selected whiskies using url
+    @whiskies = WhiskyPicker::Whisky_scraper.scrape_index_page(BASE_PATH + whisky_url)
+    #display list of whiskies
+    @whiskies.each_with_index do |whisky, index|
+      puts "#{index+1}. #{whisky[:name]}"
+    end
+  end
 
   def laters
     puts "Laters! Thanks for stopping by."
