@@ -19,4 +19,17 @@ class WhiskyPicker::Whisky_scraper
     end
     whisky_array
   end
+
+  def self.scrape_profile_page(profile_url)
+    profile = Nokogiri::HTML(open(profile_url))
+    whisky = {}
+
+    whisky[:name] = profile.css("").text.strip
+    whisky[:region] = profile.css("").text.strip
+    whisky[:type] = profile.css("").text.strip
+    whisky[:proof] = profile.css("").text.strip
+    whisky[:rating] = profile.css("").text.strip
+    whisky[:description] = profile.css("").text.strip
+  end
+
 end

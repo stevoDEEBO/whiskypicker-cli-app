@@ -67,7 +67,8 @@ For 1. Country of origin:
         Region
         Type
         Proof
-        Description
         Customer rating
+        Description
         Return to previous list
         Start Over
+        Exit
