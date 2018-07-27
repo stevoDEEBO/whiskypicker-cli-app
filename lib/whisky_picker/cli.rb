@@ -14,6 +14,7 @@ class WhiskyPicker::CLI
   def call
     greet
     pick_whiskies
+    menu
     #laters
   end
 
@@ -65,7 +66,7 @@ class WhiskyPicker::CLI
       when "exit"
         laters
       else
-        puts "Didn't quite catch that, type list or exit."
+        puts "Didn't quite catch that, type list or exit to leave."
       end
     end
   end
@@ -87,7 +88,7 @@ class WhiskyPicker::CLI
   def scotch_type_list
     input = nil
     while input != "exit"
-      puts "Please enter the number of desired scotch or type list, back or exit."
+      puts "Please enter the number of desired type of scotch or type list, back or exit to leave."
       input = gets.strip.downcase
       case input
       when "1"
@@ -105,7 +106,7 @@ class WhiskyPicker::CLI
       when "exit"
         laters
       else
-        puts "Didn't quite catch that, type list or exit."
+        puts "Didn't quite catch that, type list or exit to leave."
       end
     end
   end
@@ -179,7 +180,45 @@ class WhiskyPicker::CLI
     @whiskies = WhiskyPicker::Whisky_scraper.scrape_index_page(BASE_PATH + whisky_url)
     #display list of whiskies
     @whiskies.each_with_index do |whisky, index|
-      puts "#{index+1}. #{whisky[:name]}"
+      puts "#{index+1}. #{whisky.name}"
+      binding.pry
+    end
+
+  end
+
+  def menu
+    input = nil
+    while input != 'exit'
+      puts "Please enter the number of the particular whisky you would like info on."
+      input = gets.strip.downcase
+
+      if input.to_i > 0 && input.to_i < @whiskies.size
+        whisky = @whiskies[input.to_i-1]
+
+        #have scraper scrape profile page for selected whisky
+        WhiskyPicker::Whisky_scraper.scrape_profile_page(BASE_PATH + whisky.profile_url)
+
+        #display selected whisky profile info
+        puts "Name: ".colorize(:brown) + "#{whisky.name}"
+        puts ""
+        puts "Region+/Type: " + "#{whisky.region_type}"
+        puts "Proof: " + "#{whisky.proof}"
+        puts "Customer rating: " + "#{whisky.rating}"
+        puts "Description: " + "#{whisky.description}"
+        puts ""
+        puts ""
+        puts "Want to pick another one? Type list to start over or exit to leave."
+
+        input = gets.strip.downcase
+        if input == "list"
+          pick_whiskies
+        elsif input == "exit"
+          laters
+          exit
+        else
+          puts "Didn't quite catch that, type list or exit to leave."
+        end
+      end
     end
   end
 
