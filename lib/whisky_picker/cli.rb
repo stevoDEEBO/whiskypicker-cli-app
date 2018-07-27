@@ -38,11 +38,11 @@ class WhiskyPicker::CLI
     5. Canada
     6. Other countries
     DOC
-    country_menu
+    country_list
   end
 
 #prompt user for country selection and call country method
-  def country_menu
+  def country_list
     input = nil
     while input != "exit"
       puts "Please enter the number of desired country or type list or exit to leave:"
@@ -80,11 +80,11 @@ class WhiskyPicker::CLI
     3. Blended
     4. Grain
     DOC
-    scotch_menu
+    scotch_type_list
   end
 
 #prompt user for desired type of scotch whisky selection and call scotch whisky type method
-  def scotch_menu
+  def scotch_type_list
     input = nil
     while input != "exit"
       puts "Please enter the number of desired scotch or type list, back or exit."

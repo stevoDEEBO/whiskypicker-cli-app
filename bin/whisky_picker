@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
-require './lib/whisky_picker'
+require "bundler/setup"
+require "whisky_picker"
 
 WhiskyPicker::CLI.new.call
