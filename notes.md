@@ -9,6 +9,15 @@ How to Build a CLI Gem
 7. discover objects.
 8. program
 
+
+CLI:
+greeting
+list whiskies
+  list countries
+  scotch: list types
+display whisky profile
+laters
+
 scrape from whisky type index pages:
   CLI tells scraper class to scrape whiskies from webpage
   CLI tells whisky class to create array of whiskies
@@ -19,9 +28,6 @@ scrape from whisky profile pages:
   CLI tells whisky class to create profile attributes for whiskies
   CLI displays whisky profile info
 
-CLI makes whisky
-CLI adds profile attributes to whisky
-CLI displays whisky profile
 
 Whisky Picker - CLI Data Gem Proj
 
