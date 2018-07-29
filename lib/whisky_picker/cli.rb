@@ -181,7 +181,6 @@ class WhiskyPicker::CLI
     #display list of whiskies
     @whiskies.each_with_index do |whisky, index|
       puts "#{index+1}. #{whisky.name}"
-      binding.pry
     end
 
   end
