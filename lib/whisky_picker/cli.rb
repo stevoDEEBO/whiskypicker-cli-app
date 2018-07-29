@@ -1,6 +1,7 @@
 require 'pry'
 require_relative "whisky_scraper.rb"
 require_relative "whisky.rb"
+require 'colorize'
 
 
 
@@ -14,7 +15,7 @@ class WhiskyPicker::CLI
   def call
     greet
     pick_whiskies
-    menu
+    #menu
     #laters
   end
 
@@ -182,7 +183,7 @@ class WhiskyPicker::CLI
     @whiskies.each_with_index do |whisky, index|
       puts "#{index+1}. #{whisky.name}"
     end
-
+    menu
   end
 
   def menu
@@ -195,7 +196,7 @@ class WhiskyPicker::CLI
         whisky = @whiskies[input.to_i-1]
 
         #have scraper scrape profile page for selected whisky
-        WhiskyPicker::Whisky_scraper.scrape_profile_page(BASE_PATH + whisky.profile_url)
+        WhiskyPicker::Whisky_scraper.scrape_profile_page(BASE_PATH + whisky.profile_url )
 
         #display selected whisky profile info
         puts "Name: ".colorize(:brown) + "#{whisky.name}"

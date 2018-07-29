@@ -18,19 +18,23 @@ class WhiskyPicker::Whisky_scraper
       whiskies << my_whisky
     end
     whiskies
+    
   end
 
   def self.scrape_profile_page(profile_url)
     profile = Nokogiri::HTML(open(profile_url))
 
+    whisky_time = profile.css(".container")
+
     my_whisky = self.new
-    my_whisky.name = profile.css("name-container h1").text.strip
-    my_whisky.region_type = profile.css(".name-container.properties li")[0].text.strip
-    my_whisky.proof = profile.css(".strength").text.split(" / ")[1].strip
-    my_whisky.rating = profile.css(".rating-stars-link").text.split("-").last.strip
-    my_whisky.description = profile.css(".details-content-item").text.strip
+    my_whisky.name = whisky_time.css(".name-container h1").text.strip
+    my_whisky.region_type = whisky_time.css(".name-container ul.properties li").text
+    my_whisky.proof = whisky_time.css(".name-container.strength")#.text.split(" / ").last
+    my_whisky.rating = whisky_time.css(".subcontainer.action.rating-overview.rating-container.rating-stars-link.rating-value")#.text.split("-")
+    my_whisky.description = whisky_time.css(".details-content-item").text.strip
 
     my_whisky
+    binding.pry
   end
 
 end
