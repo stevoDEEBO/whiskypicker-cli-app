@@ -18,7 +18,7 @@ class WhiskyPicker::Whisky
       whiskies << my_whisky
     end
     whiskies
-    
+
   end
 
   def self.scrape_profile_page(profile_url)
@@ -28,7 +28,7 @@ class WhiskyPicker::Whisky
 
     my_whisky = self.new
     my_whisky.name = whisky_time.css(".name-container h1").text.strip
-    my_whisky.country = whisky_time.css("dl.meta").children[3].text  #if my_whisky.country != nil
+    my_whisky.country = whisky_time.css("dl.meta").children[3].text  #for whisky_time.css("dl.meta").children[3-2].text
     my_whisky.region_type = whisky_time.css("ul.properties li").text if my_whisky.region_type != nil
     my_whisky.proof = whisky_time.css("span.strength").text.split(" / ").last #if my_whisky.proof != nil
     my_whisky.rating = whisky_time.at("//span[@itemprop = 'ratingValue']").text if my_whisky.rating != nil
@@ -39,4 +39,3 @@ class WhiskyPicker::Whisky
   end
 
 end
-  

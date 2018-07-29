@@ -1,6 +1,5 @@
 require 'pry'
-require_relative "whisky_scraper.rb"
-#require_relative "whisky.rb"
+require_relative "whisky.rb"
 require 'colorize'
 
 
