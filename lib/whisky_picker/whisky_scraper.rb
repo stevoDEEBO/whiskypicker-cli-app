@@ -2,7 +2,7 @@ require 'nokogiri'
 require 'open-uri'
 require 'pry'
 
-class WhiskyPicker::Whisky_scraper
+class WhiskyPicker::Whisky
   attr_accessor :name, :profile_url, :country, :region_type, :proof, :rating, :description
 
   #scrape whisky type index page for name and url of whiskies

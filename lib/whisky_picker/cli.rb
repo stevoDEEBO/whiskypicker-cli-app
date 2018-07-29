@@ -1,6 +1,6 @@
 require 'pry'
 require_relative "whisky_scraper.rb"
-require_relative "whisky.rb"
+#require_relative "whisky.rb"
 require 'colorize'
 
 
@@ -178,7 +178,7 @@ class WhiskyPicker::CLI
   #display list of all scraped selected whiskies using array indices and hash key 'name'
   def list_whiskies(whisky_url)
     #scrape and and create array of whisky hashes for all selected whiskies using url
-    @whiskies = WhiskyPicker::Whisky_scraper.scrape_index_page(BASE_PATH + whisky_url)
+    @whiskies = WhiskyPicker::Whisky.scrape_index_page(BASE_PATH + whisky_url)
     #display list of whiskies
     @whiskies.each_with_index do |whisky, index|
       puts "#{index+1}. #{whisky.name}"
@@ -196,7 +196,7 @@ class WhiskyPicker::CLI
         whisky = @whiskies[input.to_i-1]
 
         #have scraper scrape profile page for selected whisky
-        whisky_prof = WhiskyPicker::Whisky_scraper.scrape_profile_page(BASE_PATH + whisky.profile_url )
+        whisky_prof = WhiskyPicker::Whisky.scrape_profile_page(BASE_PATH + whisky.profile_url )
 
         #display selected whisky profile info
         puts "Name: " + "#{whisky_prof.name}".upcase.colorize(:red)
