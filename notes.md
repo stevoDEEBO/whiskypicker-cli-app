@@ -69,7 +69,8 @@ For 1. Country of origin:
 
       Whisky info:
         Name
-        Country/Region+/Type
+        Country
+        Region+/Type
         Proof
         Customer rating
         Description

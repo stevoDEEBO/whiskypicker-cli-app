@@ -199,16 +199,17 @@ class WhiskyPicker::CLI
         whisky_prof = WhiskyPicker::Whisky_scraper.scrape_profile_page(BASE_PATH + whisky.profile_url )
 
         #display selected whisky profile info
-        puts "Name: " + "#{whisky_prof.name}".colorize(:red)
+        puts "Name: " + "#{whisky_prof.name}".upcase.colorize(:red)
         puts ""
-        puts "Region+/Type: " + "#{whisky_prof.region_type}"
+        puts "Country: " + "#{whisky_prof.country}"
+        puts "Region & Type: " + "#{whisky_prof.region_type}"
         puts "Proof: " + "#{whisky_prof.proof}"
         puts "Customer rating: " + "#{whisky_prof.rating}"
         puts "Description: " + "#{whisky_prof.description}"
         puts ""
         puts ""
         puts "Want to pick another one? Type list to start over or exit to leave."
-binding.pry
+#binding.pry
         input = gets.strip.downcase
         if input == "list"
           pick_whiskies
