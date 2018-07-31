@@ -28,10 +28,28 @@ class WhiskyPicker::Whisky
 
     my_whisky = self.new
     my_whisky.name = whisky_time.css(".name-container h1").text.strip
-    my_whisky.country = whisky_time.css("dl.meta").children[3].text  #for whisky_time.css("dl.meta").children[3-2].text
-    my_whisky.region_type = whisky_time.css("ul.properties li").text if my_whisky.region_type != nil
+
+
+
+    #my_whisky.country = whisky_time.css("dl.meta").children[3].text  if whisky_time.css("dl.meta").children[3] != nil
+
+#for whisky_time.css("dl.meta").children[n].text == "Country" return whisky_time.css("dl.meta").children[n+1].text
+    my_whisky.country_list = whisky_time.css("dl.meta")
+    my_whisky.country_list.each do |i|
+      if whisky_time.css("dl.meta").children[i].text == "Country"
+        my_whisky.country = my_whisky.children[i+1].text
+      else
+        my_whisky.country = ""
+      end
+    end
+
+
+
+
+
+    my_whisky.region_type = whisky_time.css("ul.properties li").text if whisky_time.css("ul.properties li") != nil
     my_whisky.proof = whisky_time.css("span.strength").text.split(" / ").last #if my_whisky.proof != nil
-    my_whisky.rating = whisky_time.at("//span[@itemprop = 'ratingValue']").text if my_whisky.rating != nil
+    my_whisky.rating = whisky_time.at("//span[@itemprop = 'ratingValue']").text if whisky_time.at("//span[@itemprop = 'ratingValue']") != nil
     my_whisky.description = whisky_time.css(".details-content-item").text.lines[1].strip #if my_whisky.description != nil
 
     my_whisky

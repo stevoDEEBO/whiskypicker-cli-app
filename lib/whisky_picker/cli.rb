@@ -200,17 +200,17 @@ class WhiskyPicker::CLI
         #display selected whisky profile info
         puts "Name: " + "#{whisky_prof.name}".upcase.colorize(:red)
         puts ""
-        puts "Country: " + "#{whisky_prof.country}"
-        puts "Region & Type: " + "#{whisky_prof.region_type}"
-        puts "Proof: " + "#{whisky_prof.proof}"
-        puts "Customer rating: " + "#{whisky_prof.rating}"
-        puts "Description: " + "#{whisky_prof.description}"
+        puts "Country: " + "#{whisky_prof.country}".colorize(:light_blue)
+        puts "Region & Type: " + "#{whisky_prof.region_type}".colorize(:light_blue)
+        puts "Proof: " + "#{whisky_prof.proof}".colorize(:light_blue)
+        puts "Customer rating: " + "#{whisky_prof.rating}".colorize(:light_blue)
+        puts "Description: " + "#{whisky_prof.description}".colorize(:light_yellow)
         puts ""
         puts ""
         puts "Want to pick another one? Type list to start over or exit to leave."
 #binding.pry
         input = gets.strip.downcase
-        if input == "list"
+        if input == "list" || input == "l" || input == "y" || input == "yes"
           pick_whiskies
         elsif input == "exit"
           laters
