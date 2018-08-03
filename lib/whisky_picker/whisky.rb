@@ -34,10 +34,11 @@ class WhiskyPicker::Whisky
     #my_whisky.country = whisky_time.css("dl.meta").children[3].text  if whisky_time.css("dl.meta").children[3] != nil
 
 #for whisky_time.css("dl.meta").children[n].text == "Country" return whisky_time.css("dl.meta").children[n+1].text
-    my_whisky.country_list = whisky_time.css("dl.meta")
-    my_whisky.country_list.each do |i|
-      if whisky_time.css("dl.meta").children[i].text == "Country"
-        my_whisky.country = my_whisky.children[i+1].text
+    country_list = whisky_time.css("dl.meta")
+    country_list.find do |i|
+      binding.pry
+      if country_list.children[i].text == "Country"
+        my_whisky.country = country_list.children[i+2].text
       else
         my_whisky.country = ""
       end
