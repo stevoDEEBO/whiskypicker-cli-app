@@ -191,7 +191,7 @@ class WhiskyPicker::CLI
       puts "Please enter the number of the particular whisky you would like info on."
       input = gets.strip.downcase
 
-      if input.to_i > 0 && input.to_i < @whiskies.size
+      if input.to_i > 0 && input.to_i <= @whiskies.size
         whisky = @whiskies[input.to_i-1]
 
         #have scraper scrape profile page for selected whisky
