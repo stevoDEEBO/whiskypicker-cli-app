@@ -208,7 +208,7 @@ class WhiskyPicker::CLI
         puts ""
         puts ""
         puts "Want to pick another one? Type list to start over or exit to leave."
-#binding.pry
+
         input = gets.strip.downcase
         if input == "list" || input == "l" || input == "y" || input == "yes"
           pick_whiskies
