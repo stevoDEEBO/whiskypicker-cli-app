@@ -14,13 +14,12 @@ class WhiskyPicker::CLI
   def call
     greet
     pick_whiskies
-    #menu
-    #laters
   end
 
 #greet user
   def greet
     puts "Welcome to Whisky Picker...ready to pick yer whisky?"
+    puts ""
   end
 
 #list search options - can expand later by diff options- country, style, brand, etc
