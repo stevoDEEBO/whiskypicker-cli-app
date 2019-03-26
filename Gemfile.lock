@@ -3,7 +3,7 @@ PATH
   specs:
     whisky_picker (0.1.0)
       colorize (~> 0.8.1)
-      nokogiri (~> 1.6, >= 1.6.8)
+      nokogiri (~> 1.8.5, >= 1.8.5)
 
 GEM
   remote: https://rubygems.org/
